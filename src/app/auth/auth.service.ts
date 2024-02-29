@@ -4,6 +4,7 @@ import { BehaviorSubject, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { IUser, User } from './user.model';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
@@ -135,8 +136,7 @@ export class AuthService {
   }
 }
 
-export const AUTH_URL =
-  'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAEvconYQRiJtusfRK_Upuutw2s7a5soaY';
+export const AUTH_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`;
 
 export interface IAuthResponseData {
   kind: string;
